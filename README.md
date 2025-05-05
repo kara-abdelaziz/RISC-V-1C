@@ -29,7 +29,13 @@ The [Instruction Set](https://en.wikipedia.org/wiki/Instruction_set_architecture
 
 ## Verilog generated code
 
-Digital has the ability to automatically generate Verilog or [VHDL](https://en.wikipedia.org/wiki/VHDL) code; in our case, we generated the Verilog code. However, to make the code compatible with the FPGA, some modifications had to be made. The most important of these was a change in the implementation of RAM memory to force the use of the built-in memory blocks, since by default the code didn't use the FPGA's built-in memory blocks called [BRAMs](https://nandland.com/lesson-15-what-is-a-block-ram-bram/); instead RAM was implemented using elementary logic cells. This led to the use of a very high number of logic cells, making the FPGA insufficient to hold the processor. All the Verilog code is contained in [cpu.v]()
+Digital has the ability to automatically generate Verilog or [VHDL](https://en.wikipedia.org/wiki/VHDL) code; in our case, we generated the Verilog code. However, to make the code compatible with the FPGA, some modifications had to be made. The most important of these was a change in the implementation of RAM memory to force the use of the built-in memory blocks, since by default the code didn't use the FPGA's built-in memory blocks called [BRAMs](https://nandland.com/lesson-15-what-is-a-block-ram-bram/); instead RAM was implemented using elementary logic cells. This led to the use of a very high number of logic cells, making the FPGA insufficient to hold the processor. All the Verilog code is contained in [cpu.v](cpu.v).
+
+## FPGA Cyclone IV implementation
+
+An Intel Altera Cyclone IV FPGA was used to implement the processor on hardware. The exact reference of the FPGA is [EP4CE1](https://www.waveshare.com/coreep4ce10.htm), with a frequency of 50 MHz, 164 pins, 10k logic elements, and 50 KB of dedicated memory. To get a glimpse of processor execution on the very fast FPGA, the code has been modified to change the clock frequency from 50 MHz to 1 Hertz. And the first 4 bits of the ALU output are displayed on the 4 LEDs directly integrated into the FPGA. The video demonstration below shows the execution.
+
+
 
 
 
