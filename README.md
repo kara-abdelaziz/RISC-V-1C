@@ -25,6 +25,16 @@ Looking at the image at above of the processor, it's easy to see that 90% of the
 
 The [Instruction Set](https://en.wikipedia.org/wiki/Instruction_set_architecture) chosen to be implemented on this processor is the RV32I, with the exception of the 3 instructions ecall, ebreak, and fence, which are not so essential for normal program execution. You can see all the instructions in the diagram below, these are the green instructions, excluding the 3 already mentioned. RISC-V is designed to be flexible enough to include several instruction sets. In our case, we've chosen to implement only the basics. That is, the basic instructions for 32-bit format.
 
+![image](RV32IMAC-ISA.jpg)
+
+## Verilog generated code
+
+Digital has the ability to automatically generate Verilog or [VHDL](https://en.wikipedia.org/wiki/VHDL) code; in our case, we generated the Verilog code. However, to make the code compatible with the FPGA, some modifications had to be made. The most important of these was a change in the implementation of RAM memory to force the use of the built-in memory blocks, since by default the code didn't use the FPGA's built-in memory blocks called [BRAMs](https://nandland.com/lesson-15-what-is-a-block-ram-bram/); instead RAM was implemented using elementary logic cells. This led to the use of a very high number of logic cells, making the FPGA insufficient to hold the processor. All the Verilog code is contained in [cpu.v]()
+
+
+
+
+
 
 
 
