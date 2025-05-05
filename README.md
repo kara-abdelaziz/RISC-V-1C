@@ -21,4 +21,10 @@ Looking at the image at above of the processor, it's easy to see that 90% of the
 9.  Shifter (in parallelogram form): Combinatorial circuit for shifting bits.
 10.  Multiplexers (in the form of an isosceles trapezoid): Via control signals from the Control Unit, they control the flow of data trough the DataPath.
 
+## Instruction Set Architecture
+
+The [Instruction Set](https://en.wikipedia.org/wiki/Instruction_set_architecture) chosen to be implemented on this processor is the RV32I, with the exception of the 3 instructions ecall, ebreak, and fence, which are not so essential for normal program execution. You can see all the instructions in the diagram below, these are the green instructions, excluding the 3 already mentioned. RISC-V is designed to be flexible enough to include several instruction sets. In our case, we've chosen to implement only the basics. That is, the basic instructions for 32-bit format.
+
+
+
 
