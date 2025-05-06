@@ -39,6 +39,10 @@ An Intel Altera Cyclone IV FPGA was used to implement the processor on hardware.
 
 The Verilog code was compiled on [Intel Quartus](https://en.wikipedia.org/wiki/Quartus_Prime) Prime Lite edition [EDA](https://en.wikipedia.org/wiki/Electronic_design_automation), and the summary of the compilation result is shown in the following image:
 
+![image](Quartus_risc-v_summary.jpg)
+
+Being inexperienced with FPGAs, I'd like to point out that Google's AI [Gemini 2.5](https://aistudio.google.com), helped me a lot in the FPGA implementation process. I even uploaded the verilog code of the processor design to it, and it managed to find a bug that I didn't detect with the few unit tests I ran.
+
 
 
 
