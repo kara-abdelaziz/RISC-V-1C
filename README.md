@@ -4,7 +4,7 @@ This Project in 2 words is a project to build a [RISC-V](https://en.wikipedia.or
 
 The simulator in question is called [Digital](https://github.com/hneemann/Digital). It allowed us to do the implementation, to test all the instructions implemented, even to test small programs. But most importantly, it enabled us to generate [Verilog](https://en.wikipedia.org/wiki/Verilog) code, which will then be the medium for transplanting to the FPGA. Normally, hardware implementation is done directly using the Verilog language. But for my part, I preferred visual programming, which makes debugging and testing easier for me. The image below is a snapshot of the entire processor (most of which is the [DataPath](https://en.wikipedia.org/wiki/Datapath)), created using Digital simulator.
 
-![image](rv32i.png)
+![image](images/rv32i.png)
 
 ## Implementation
 
@@ -25,7 +25,7 @@ Looking at the image at above of the processor, it's easy to see that 90% of the
 
 The [Instruction Set](https://en.wikipedia.org/wiki/Instruction_set_architecture) chosen to be implemented on this processor is the RV32I, with the exception of the 3 instructions ecall, ebreak, and fence, which are not so essential for normal program execution. You can see all the instructions in the diagram below, these are the green instructions, excluding the 3 already mentioned. RISC-V is designed to be flexible enough to include several instruction sets. In our case, we've chosen to implement only the basics. That is, the basic instructions for 32-bit format.
 
-![image](RV32IMAC-ISA.jpg)
+![image](images/RV32IMAC-ISA.jpg)
 
 ## Verilog generated code
 
@@ -35,11 +35,11 @@ Digital has the ability to automatically generate Verilog or [VHDL](https://en.w
 
 An Intel Altera Cyclone IV FPGA was used to implement the processor on hardware. The exact reference of the FPGA is [EP4CE1](https://www.waveshare.com/coreep4ce10.htm), with a frequency of 50 MHz, 164 pins, 10k logic elements, and 50 KB of dedicated memory. To get a glimpse of processor execution on the very fast FPGA, the code has been modified to change the clock frequency from 50 MHz to 1 Hertz. And the first 4 bits of the ALU output are displayed on the 4 LEDs directly integrated into the FPGA. The demonstration video below shows the execution.
 
-[![image](fpga-video.jpg)](https://youtu.be/b0H4Q8MfbC4)
+[![image](images/fpga-video.jpg)](https://youtu.be/b0H4Q8MfbC4)
 
 The Verilog code was compiled on [Intel Quartus](https://en.wikipedia.org/wiki/Quartus_Prime) Prime Lite edition [EDA](https://en.wikipedia.org/wiki/Electronic_design_automation), and the summary of the compilation result is shown in the following image:
 
-![image](Quartus_risc-v_summary.jpg)
+![image](images/Quartus_risc-v_summary.jpg)
 
 Being inexperienced with FPGAs, I'd like to point out that Google's AI [Gemini 2.5](https://aistudio.google.com), helped me a lot in the FPGA implementation process. I even uploaded the verilog code of the processor design to it, and it managed to find a bug that I didn't detect with the few unit tests I ran.
 
