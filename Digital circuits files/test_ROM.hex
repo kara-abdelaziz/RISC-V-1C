@@ -1,0 +1,174 @@
+op-imm [00-100-11] : 10-1-1-01-0-0-01-X
+op     [01-100-11] : 10-1-1-00-0-0-01-X
+store  [01-000-11] : 10-0-1-10-1-1-XX-X
+load   [00-000-11] : 10-1-1-01-1-0-10-X
+branch [11-000-11] : 11-0-1-00-0-0-XX-1
+lui    [01-101-11] : 10-1-X-XX-X-0-00-X
+auipc  [00-101-11] : 10-1-0-11-1-0-01-X
+jal    [11-011-11] : 01-1-X-XX-X-0-11-0
+jalr   [11-001-11] : 00-1-1-01-0-0-11-X
+
+
+
+#test op instructions
+
+.text 
+    addi   t0 , t0, 5  ->  0x00528293
+    addi   t1 , t1, 6  ->  0x00630313
+    
+    add    t2, t0, t1  ->  0x006283b3
+    sub    t3, t0, t1  ->  0x40628e33
+    and    t4, t0, t1  ->  0x0062feb3
+    or     t5, t0, t1  ->  0x0062ef33
+    xor    t6, t0, t1  ->  0x0062cfb3
+
+    add   t2 , t2, x0  ->  0x000383b3
+    add   t3 , t3, x0  ->  0x000e0e33
+    add   t4 , t4, x0  ->  0x000e8eb3
+    add   t5 , t5, x0  ->  0x000f0f33
+    add   t6 , t6, x0  ->  0x000f8fb3
+
+
+#test op-imm instructions
+
+.text 
+    addi   t0 , t0, 5  ->  0x00528293
+    
+    addi   t2, t0, 6   ->  0x00628393
+    andi   t4, t0, 6   ->  0x0062fe13
+    ori    t5, t0, 6   ->  0x0062ee93
+    xori   t6, t0, 6   ->  0x0062cf13
+
+    addi   t2 , t2, 0  ->  0x00038393
+    addi   t3 , t3, 0  ->  0x000e0e13
+    addi   t4 , t4, 0  ->  0x000e8e93
+    addi   t5 , t5, 0  ->  0x000f0f13
+
+
+#test store instructions
+
+.text
+    addi   t0 , t0, 5 -> 0x00528293
+    addi   t1 , t1, 4 -> 0x00430313  
+    
+    sb     t0, 1(t1)  -> 0x005300a3   
+    sh     t0, 6(t1)  -> 0x00531323    
+    sw     t0, 8(t1)  -> 0x00532423
+
+    lw     t0, 4(x0)  -> 0x00402283  
+    lw     t0, 8(x0)  -> 0x00802283    
+    lw     t0, 12(x0) -> 0x00c02283
+
+
+#test load instructions
+
+.text
+    addi   t0 , t0,-1  -> 0xfff28293
+    addi   t1 , t1, 4  -> 0x00430313
+  
+    sw     t0, 8(x0)   -> 0x00502423
+
+    lw     t2, 4(t1)   -> 0x00432383
+    lh     t3, 6(t1)   -> 0x00631e03
+    lhu    t4, 6(t1)   -> 0x00635e83
+    lb     t5, 7(t1)   -> 0x00730f03
+    lbu    t6, 7(t1)   -> 0x00734f83
+
+
+#test shift instructions
+
+.text
+    addi   t0 , t0,-1  -> 0xfff28293
+    addi   t1 , t1, 6  -> 0x00630313
+  
+    sll    t2, t0, t1  -> 0x006293b3
+    srl    t2, t0, t1  -> 0x0062d3b3
+    sra    t2, t0, t1  -> 0x4062d3b3
+
+    slli   t2, t0, 30  -> 0x01e29393
+    srli   t2, t0, 30  -> 0x01e2d393
+    srai   t2, t0, 30  -> 0x41e2d393
+
+
+#test branch equality instructions
+
+.text
+    addi   t0 , t0, 3   -> 0x00328293
+    addi   t0 , t0, -1  -> 0xfff28293
+    beq    t0 , x0, 8   -> 0x00028463
+    nop                 -> 0x00000013
+    bne    t0 , x0,-12  -> 0xfe029ae3
+
+
+#test branch diffirent instructions
+
+.text
+    addi   t0 , t0, 2   -> 0x00228293
+    addi   t0 , t0, -1  -> 0xfff28293
+    blt    t0 , x0, 8   -> 0x0002c463 
+    nop                 -> 0x00000013
+    bge    t0 , x0,-12  -> 0xfe02dae3
+
+
+#test branch diffirent instructions
+
+.text
+    addi   t0 , t0, 2   -> 0x00228293
+    addi   t0 , t0, -1  -> 0xfff28293
+    blt    t0 , x0, 8   -> 0x0002c463 
+    nop                 -> 0x00000013
+    bge    t0 , x0,-12  -> 0xfe02dae3 
+
+
+#test branch unsigned instructions
+
+.text
+    addi   t0 , t0, -1  -> 0xfff28293
+    addi   t1 , t1, 1   -> 0x00130313
+    bltu   t0 , t1, 8   -> 0x0062e663
+    addi   t0 , t0, 1   -> 0x00128293
+    addi   t1 , t1, -1  -> 0xfff30313
+    bgeu   t0 , t1,-16  -> 0xfe62f8e3
+
+
+#test lui instruction
+
+.text
+    lui    t0, 703710    -> 0xabcde2b7
+    addi   t0, t0, 819   -> 0x33328293
+    add    t0, t0, x0    -> 0x000282b3
+
+
+#test auipc instruction
+
+.text
+    nop                 -> 0x00000013
+    nop                 -> 0x00000013
+    nop                 -> 0x00000013
+    auipc  t0, 703710   -> 0xabcde297
+    add    t0, t0, x0   -> 0x000282b3
+
+
+#test jal instruction
+
+.text
+    nop                 -> 0x00000013
+    nop                 -> 0x00000013
+    jal    t0, 8        -> 0x008002ef
+    nop                 -> 0x00000013
+    add    t0, t0, x0   -> 0x000282b3
+
+
+#test jalr instruction
+
+.text
+    addi   t1, t1, 8    -> 0x00830313
+    jalr   t0, 8(t1)    -> 0x008302e7
+    nop                 -> 0x00000013
+    nop                 -> 0x00000013
+    add    t0, t0, x0   -> 0x000282b3
+
+
+
+
+
