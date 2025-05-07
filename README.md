@@ -81,7 +81,7 @@ Being inexperienced with FPGAs, I'd like to point out that Google's AI [Gemini 2
 5. README.md : This readme file.
   
 ## Website link
-The website of the author of this project, that contains many other similar projects : https://www.el-kalam.com/
+The website of the author of this project, that contains this project and many other similar projects : https://www.el-kalam.com/
      
 
 
