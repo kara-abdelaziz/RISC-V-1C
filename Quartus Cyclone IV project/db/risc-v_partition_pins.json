@@ -1,0 +1,145 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "alu_result[0]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[1]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[2]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[3]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[4]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[5]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[6]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[7]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[8]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[9]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[10]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[11]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[12]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[13]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[14]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[15]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[16]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[17]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[18]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[19]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[20]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[21]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[22]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[23]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[24]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[25]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[26]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[27]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[28]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[29]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[30]",
+					"strict" : false
+				},
+				{
+					"name" : "alu_result[31]",
+					"strict" : false
+				},
+				{
+					"name" : "rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "clk_50mhz",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
