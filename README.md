@@ -78,6 +78,7 @@ Being inexperienced with FPGAs, I'd like to point out that Google's AI [Gemini 2
    + output_files/risc-v.sof : is the bit-stream file, or the configuration file. The file to upload using [JTAG](https://en.wikipedia.org/wiki/JTAG) port, on the memory (SRAM), used to confgure the CPU on the FPGA.
   
 4. images : A directory containing the images used in this readme text.
+5. README.md : This readme file.
   
 ## Website link
 The website of the autor of this project, that contains many other similar projects : https://www.el-kalam.com/
