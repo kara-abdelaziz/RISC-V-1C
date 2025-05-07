@@ -1,0 +1,2 @@
+Warning (10273): Verilog HDL warning at cpu.v(14): extended using "x" or "z" File: C:/Users/snakeAs/Desktop/RISC-V/FPGA/cpu.v Line: 14
+Warning (10273): Verilog HDL warning at cpu.v(871): extended using "x" or "z" File: C:/Users/snakeAs/Desktop/RISC-V/FPGA/cpu.v Line: 871
